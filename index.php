@@ -56,7 +56,7 @@ try {
 
     <label for = "name">Name</label><br/>
 
-    <input type = "text" id = "name" name ="naem" value="<?= $name ?? '' ?>" ><br/><br/>
+    <input type = "text" id = "name" name ="name" value="<?= $name ?? '' ?>" ><br/><br/>
 
     <label for = "betreff">Betreff</label><br/>
 

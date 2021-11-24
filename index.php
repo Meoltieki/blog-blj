@@ -13,8 +13,8 @@ try {
     $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO posts (created_by,creadet_at, post_title, post_text)
-    VALUES ('$name', now(),'$betreff', '$post')";
+    $sql = $conn ->prepare("INSERT INTO posts (created_by,creadet_at, post_title, post_text)
+    VALUES ('$name', now(),'$betreff', '$post')");
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";
@@ -56,16 +56,16 @@ try {
 
     <label for = "name">Name</label><br/>
 
-    <input type = "text" id = "name" name ="name" value="<?= $name ?? '' ?>" ><br/><br/>
+    <input type = "text" id = "name" name ="name" value="<?=htmlspecialchars($name ?? '' )?>" ><br/><br/>
 
     <label for = "betreff">Betreff</label><br/>
 
-    <input type = "text" id = "betreff" name ="betreff" value="<?= $betreff ?? '' ?>" ><br/><br/>
+    <input type = "text" id = "betreff" name ="betreff" value="<?=htmlspecialchars($betreff ?? '') ?>" ><br/><br/>
     
     
     <label for = "post">Post</label><br/>
 
-    <textarea name= "post" id = "post" cols = "40" rows = "5"value="<?= $post ?? '' ?>"></textarea></br>
+    <textarea name= "post" id = "post" cols = "40" rows = "5"value="<?=htmlspecialchars($post ?? '') ?>"></textarea></br>
 
     
 

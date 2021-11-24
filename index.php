@@ -1,27 +1,28 @@
 <?php
 
-$betreff = $_POST ['betreff'] ?? '';
-
-
 $user = 'root';
 $password = '';
 $database = 'blog';
 
-$pdo = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password,[
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+try {
+    $name = $_POST['name'] ?? '';
+    $betreff = $_POST['betreff'] ?? '';
+    $post = $_POST['post'] ?? '';
 
-PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-]);
+    $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO posts (created_by, post_title, post_text)
+    VALUES ('$name', '$betreff', '$post')";
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo "New record created successfully";
+  } catch(PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+  }
 
-if(isset($_POST['submit'])) {
-    $betreff = $_POST ['betreff'] ?? '';
-    $post=$_POST['post'];
-    
-
-$query = "INSERT INTO posts (betreff, post)
-VALUES ('$betreff', '$post')";
-
+  $conn = null;
 }
 
 ?>
@@ -51,7 +52,11 @@ VALUES ('$betreff', '$post')";
      
     <main>
 
-    <form action = "index.php" method ="post">
+    <form action = "creatpost.php" method ="POST">
+
+    <label for = "name">Name</label><br/>
+
+    <input type = "text" id = "name" name ="naem" value="<?= $name ?? '' ?>" ><br/><br/>
 
     <label for = "betreff">Betreff</label><br/>
 
@@ -60,11 +65,12 @@ VALUES ('$betreff', '$post')";
     
     <label for = "post">Post</label><br/>
 
-    <textarea name= "post" id = "post" cols = "40" rows = "5"></textarea></br>
+    <textarea name= "post" id = "post" cols = "40" rows = "5"value="<?= $post ?? '' ?>"></textarea></br>
 
-    </form>
+    
 
     <input type = "submit" value = "Posten"></br>
+    </form>
     </main>
 
     </br><footer>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</footer>

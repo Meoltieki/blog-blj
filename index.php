@@ -14,10 +14,18 @@ PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ]);
 
+if(isset($_POST['submit'])) {
+    $betreff = $_POST ['betreff'] ?? '';
+    $post=$_POST['post'];
+    
 
+$query = "INSERT INTO posts (betreff, post)
+VALUES ('$betreff', '$post')";
+
+}
 
 ?>
-datenbank 
+
 
 
 

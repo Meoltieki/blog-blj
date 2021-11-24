@@ -52,7 +52,7 @@ try {
      
     <main>
 
-    <form action = "creatpost.php" method ="POST">
+    <form action = "index.php" method ="POST">
 
     <label for = "name">Name</label><br/>
 

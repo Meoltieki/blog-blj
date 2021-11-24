@@ -13,8 +13,8 @@ try {
     $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO posts (created_by, post_title, post_text)
-    VALUES ('$name', '$betreff', '$post')";
+    $sql = "INSERT INTO posts (created_by,creadet_at, post_title, post_text)
+    VALUES ('$name', now(),'$betreff', '$post')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";

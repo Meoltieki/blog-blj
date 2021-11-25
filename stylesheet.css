@@ -12,7 +12,8 @@ body {
 }
 
 a:link{
-    color:aqua;
+    background-color: wheat;
+    
     text-decoration: none;
 }
 a:visited{
@@ -20,5 +21,11 @@ a:visited{
 }
 a:hover{
     color:brown;
+}
+
+
+div.php {
+    background-color: wheat;
+    
 }
 

@@ -3,4 +3,9 @@
 
 
 
-<nav> <a href = "/blog/blog-blj/new.php">New Posts</a></nav></br>
+<nav> <a href = "/blog/blog-blj/new.php">New Posts</a>
+    <a href = "/blog/blog-blj/index.php">home</a>
+
+
+</nav></br>
+

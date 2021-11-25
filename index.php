@@ -1,5 +1,7 @@
 <?php
 
+$errors = [];
+
 $user = 'root';
 $password = '';
 $database = 'blog';
@@ -7,18 +9,44 @@ $database = 'blog';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name = $_POST['name'] ?? '';
+    $name = htmlspecialchars($name);
     $betreff = $_POST['betreff'] ?? '';
+    $betreff = htmlspecialchars($betreff);
     $post = $_POST['post'] ?? '';
+    $post = htmlspecialchars($post);
+    
+    if (count($errors) > 0) {
 
     $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = $conn -> prepare("INSERT INTO posts (  created_by, post_title, post_text ) VALUES (  :name, :betreff, :post) ");
-
+    $sql = $conn -> prepare("INSERT INTO posts (created_by, post_title, post_text ) VALUES (  :name, :betreff, :post) ");
+    
     $sql->execute([':name' => $name, ':betreff' => $betreff, ':post' => $post]);
     echo "New record created successfully";
-  
-
     $conn = null;
+    }
+    
+     
+
+   
+
+    $name = trim($name);
+    $betreff = trim($betreff);
+    $post = trim ($post);
+   
+    
+
+    if ($name === '') {
+        $errors[] = 'Du hast keine Namen.';
+    }
+
+    if ($betreff === '') {
+        $errors[] = 'Um was geht es denn?';
+    }
+    if ($post === '') {
+        $errors[] = 'Da steht ja nichts?!';
+    }
+    
 }
 
 ?>
@@ -29,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="robots" content="noindex">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,10 +70,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class = header><h1>BLOG</h1> </div>
 
 
-    <?php
-        include 'include.php';
-     ?>
+    <?php include 'include.php';?>
 
+        
+            <div class="error-box">
+                <ul>
+                    <?php foreach ($errors as $error) { ?>
+                        <li><?= $error ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        
      
     <main>
 

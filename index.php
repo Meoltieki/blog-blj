@@ -11,12 +11,10 @@ try {
     $post = $_POST['post'] ?? '';
 
     $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
-    // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = $conn ->prepare("INSERT INTO posts (created_by,creadet_at, post_title, post_text)
-    VALUES ('$name', now(),'$betreff', '$post')");
-    // use exec() because no results are returned
-    $conn->exec($sql);
+    $sql = $conn -> prepare("INSERT INTO posts (created_by, post_title, post_text, created_at) VALUES (:name, :betreff, :post, now())");
+
+    $sql->execute([':name' => $name, ':betreff' => $betreff, ':post' => $post]);
     echo "New record created successfully";
   } catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();

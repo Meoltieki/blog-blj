@@ -28,9 +28,9 @@ $pdo = new PDO('mysql:host=localhost;dbname='. $database, $user, $password);
 
 <div class = header><h1>BLOG</h1> </div>
 
-    <?php include 'include.php';?>
-    
-    <?php include 'others.php';?>
+    <?php include 'include.php'?>
+
+
 
     <form action = "new.php" method ="GET">
     

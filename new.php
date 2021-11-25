@@ -9,6 +9,10 @@ $limit = 10;
 $statement = $conn->prepare("SELECT `created_by`, `creadet_at`, `post_title`,`post_text` FROM `posts` ORDER BY `id` DESC LIMIT :limit");
 $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
 $statement->execute();
+
+
+
+
 ?>
 
 

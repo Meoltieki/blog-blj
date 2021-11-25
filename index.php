@@ -5,22 +5,20 @@ $password = '';
 $database = 'blog';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-try {
+
     $name = $_POST['name'] ?? '';
     $betreff = $_POST['betreff'] ?? '';
     $post = $_POST['post'] ?? '';
 
     $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = $conn -> prepare("INSERT INTO posts (created_by, post_title, post_text, created_at) VALUES (:name, :betreff, :post, now())");
+    $sql = $conn -> prepare("INSERT INTO posts (  created_by, post_title, post_text ) VALUES (  :name, :betreff, :post) ");
 
     $sql->execute([':name' => $name, ':betreff' => $betreff, ':post' => $post]);
     echo "New record created successfully";
-  } catch(PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
-  }
+  
 
-  $conn = null;
+    $conn = null;
 }
 
 ?>

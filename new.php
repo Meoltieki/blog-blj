@@ -8,22 +8,8 @@ $database = 'blog';
 
 $pdo = new PDO('mysql:host=localhost;dbname='. $database, $user, $password);
 
-        $sql = "SELECT creadet_at, created_by, post_title, post_text FROM posts ";
+        $sql = "SELECT creadet_at, created_by, post_title, post_text FROM posts Order BY ID DESC";
         
-
-function connectToIPDatabase(){
-    try {
-        return new PDO('mysql:host=mysgl12.webland.ch;dbname=041e_dagomez', 'd041e_dagomez', '54321_Db!!!', [
-            PDO::ATTR_ERRMODE                    =>      PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_INIT_COMMAND         =>     'SET NAMES utf8',
-        ]);
-    } catch (PDOException $e){
-        die('keine  Verbindung möglich: ' .$e->getMessage());
-    }
-   
-    }
-
-   
 ?>
 
 
@@ -42,9 +28,9 @@ function connectToIPDatabase(){
 
 <div class = header><h1>BLOG</h1> </div>
 
-    <?php include 'include.php' ?>
-
+    <?php include 'include.php';?>
     
+    <?php include 'others.php';?>
 
     <form action = "new.php" method ="GET">
     
@@ -68,7 +54,7 @@ function connectToIPDatabase(){
 
         
     
-    </br><footer>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</footer>
+    </br><footer  id = "footer">Autor/in: du. </footer>
 </body>
 </html>
 

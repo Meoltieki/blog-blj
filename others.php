@@ -29,10 +29,13 @@ $pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_dagomez', 'd041e_dagom
     </head>
     
     <body>
-
+    
     <div class="header">
         <h1>BLOG</h1>
     </div>
+
+    <?php  include 'include.php'; ?>
+    <div id = "others">
     <?php
     foreach ($pdo->query($sql) as $row) { 
         $link = $row['url'];
@@ -40,5 +43,6 @@ $pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_dagomez', 'd041e_dagom
             echo "<a href='" . $link . "'class='otherblogs'>". $description . "</a><br>";
             }
             ?>
+     </div>
     </body>
     </html>

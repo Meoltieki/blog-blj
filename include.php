@@ -5,11 +5,11 @@
 
 <nav> 
 
-    <a href = "/blog/blog-blj/index.php">home</a>
+    <a href = "index.php">home</a>
 
-    <a href = "/blog/blog-blj/new.php">New Posts</a>
+    <a href = "index.php?page=new">New Posts</a>
 
-    <a href = "/blog/blog-blj/others.php">Other Blogs</a>
+    <a href = "index.php?page=others">Other Blogs</a>
 
 
 </nav></br>

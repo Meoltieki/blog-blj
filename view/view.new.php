@@ -8,8 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "stylesheet.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+  
     <title>New Posts</title>
 </head>
 
@@ -32,23 +31,35 @@
            <p> <?=  $row['post_title']?></p> <br /><br />
            <p><?=  $row['post_text']?> </p><br /><br />
             <p><?= $row ['creadet_at']?></p>
-        </div>
+           
 
-
-
-        <form action="new.php" method="POST">
-
-
+            </div>
+            
             <label for="comment">Comment</label><br />
+            <textarea name="comment" id="comment" cols="40" rows="2"><?= ($comment ?? '') ?></textarea></br>
 
-            <textarea name="comment" id="comment" cols="40" rows="2"><?= ($post ?? '') ?></textarea></br>
+             <input type="submit" value="Comment"></br>
 
-
-
-            <input type="submit" value="Comment"></br>
-        </form></br>
-
+        
     <?php } ?>
+
+    </form></br>
+
+        <form action = "model/model.new.php" method = "POST">
+
+        <?php foreach ($pdo->query($tt) as $row) { ?> 
+            
+            <p><?= $row ['comment']?></p>
+
+            
+
+        </form>
+           
+        <?php } ?>
+
+     
+
+    
     
         
 

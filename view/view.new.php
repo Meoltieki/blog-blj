@@ -23,57 +23,57 @@
 
 
 
-    <form action = "model/model.home.php" method ="GET">
+    <form action = "model/model.new.php" method ="GET">
     
     
     
  
      <?php foreach ($pdo->query($sql) as $row) { ?>
 
+       
         <div class = "php">
-           <p><?=  $row['created_by']?> </p><br /> 
+            
+           <p><b><?=  $row['created_by']?></b> </p><br /> 
+    
            <p> <?=  $row['post_title']?></p> <br />
            <p><?=  $row['post_text']?> </p><br />
-           <p> <img src=  <?= $row ['link']?> width = "350"  height= "200"> </p>
+           <p> <img src=<?= $row ['link']?> width = "350"  height= "200"> </p>
+           
            <p><?= $row ['creadet_at']?></p>
-            
-
-          
-
-
            
-           
-       
-
-            
-
-           
-
         </div>
+                
+        
 
+            <form action = "model/model.new.php" method = "POST">
+
+                <?php foreach ($pdo->query($tt) as $row) { ?> 
+                    
+                    <p><?= $row ['comment']?></p>
+
+                <?php } ?>
+            
+            </form>
+
+     </form>
+            
+    <?php } ?>  
+
+    <form action = "model/model.new.php" method = "POST">
+
+       
+       
+        
             <label for="comment">Comment</label><br />
             <textarea name="comment" id="comment" cols="40" rows="2"><?= ($comment ?? '') ?></textarea></br>
 
              <input type="submit" value="Comment"></br>
+
+            
              
-    </form></br>
-        
-    <?php } ?>
+        </form></br>
 
-   
-  
 
-<form action = "model/model.new.php" method = "GET">
-
-<?php foreach ($pdo->query($tt) as $row) { ?> 
-    
-    <p><?= $row ['comment']?></p>
-
-    
-
-</form>
-   
-<?php } ?>
      
 
     

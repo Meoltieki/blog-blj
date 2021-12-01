@@ -23,9 +23,9 @@ a:hover{
 }
 
 
-div.php {
+div.php.p {
     background-color: wheat;
-    
+    font-weight:bolder;
 }
 
 #footer{
@@ -33,9 +33,5 @@ div.php {
     padding-right: 100px;
 }
 
-#others.a{
 
-    
-    
-}
 

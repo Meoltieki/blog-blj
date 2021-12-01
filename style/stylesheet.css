@@ -5,14 +5,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
     background-color: blanchedalmond;
+    
 }
 
 .header{
     font-size: 2.0em;
+  
 }
 
+
 a:link{
-    background-color: wheat;
+    background-color: wheat ;
     text-decoration: none;
 }
 a:visited{
@@ -23,10 +26,13 @@ a:hover{
 }
 
 
-div.php.p {
+div.php {
     background-color: wheat;
-    font-weight:bolder;
+    border-radius: 10px 25%;
+   
 }
+    
+
 
 #footer{
     padding-left: 100px;

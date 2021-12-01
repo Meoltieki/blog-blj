@@ -14,6 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $betreff = htmlspecialchars($betreff);
     $post = $_POST['post'] ?? '';
     $post = htmlspecialchars($post);
+    $link = $_POST['link'] ?? '';
+    $link = ($link);
+    
 
     $name = trim($name);
     $betreff = trim($betreff);
@@ -35,11 +38,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = $conn->prepare("INSERT INTO posts (created_by, post_title, post_text ) VALUES (  :name, :betreff, :post) ");
+        $sql = $conn->prepare("INSERT INTO posts (created_by, post_title, post_text, link ) VALUES (  :name, :betreff, :post, :link) ");
 
-        $sql->execute([':name' => $name, ':betreff' => $betreff, ':post' => $post]);
+        
+
+
+        $sql->execute([':name' => $name, ':betreff' => $betreff, ':post' => $post,  ':link' => $link ]);
         echo "New record created successfully";
         $conn = null;
     }
+
+   
+
+   
+
+
 }
 
+
+
+        

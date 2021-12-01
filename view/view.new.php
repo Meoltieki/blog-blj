@@ -1,4 +1,8 @@
-<?php include 'model/model.new.php'?>
+<?php include 'model/model.new.php'
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,35 +32,48 @@
 
         <div class = "php">
            <p><?=  $row['created_by']?> </p><br /> 
-           <p> <?=  $row['post_title']?></p> <br /><br />
-           <p><?=  $row['post_text']?> </p><br /><br />
-            <p><?= $row ['creadet_at']?></p>
+           <p> <?=  $row['post_title']?></p> <br />
+           <p><?=  $row['post_text']?> </p><br />
+           <p> <img src=  <?= $row ['link']?> width = "350"  height= "200"> </p>
+           <p><?= $row ['creadet_at']?></p>
+            
+
+          
+
+
+           
+           
+       
+
+            
+
            
 
-            </div>
-            
+        </div>
+
             <label for="comment">Comment</label><br />
             <textarea name="comment" id="comment" cols="40" rows="2"><?= ($comment ?? '') ?></textarea></br>
 
              <input type="submit" value="Comment"></br>
-
+             
+    </form></br>
         
     <?php } ?>
 
-    </form></br>
+   
+  
 
-        <form action = "model/model.new.php" method = "POST">
+<form action = "model/model.new.php" method = "GET">
 
-        <?php foreach ($pdo->query($tt) as $row) { ?> 
-            
-            <p><?= $row ['comment']?></p>
+<?php foreach ($pdo->query($tt) as $row) { ?> 
+    
+    <p><?= $row ['comment']?></p>
 
-            
+    
 
-        </form>
-           
-        <?php } ?>
-
+</form>
+   
+<?php } ?>
      
 
     

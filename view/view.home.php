@@ -50,9 +50,11 @@
 
             <textarea name="post" id="post" cols="40" rows="5"><?= ($post ?? '') ?></textarea></br>
 
-
+            <label for="link">Bild</label><br />
+            <input type="text" id="link" name="link" value="<?= htmlspecialchars($link ?? '') ?>"><br /><br />
 
             <input type="submit" value="Posten"></br>
+        
         </form>
     </main>
 

@@ -2,9 +2,6 @@
 
 $errors = [];
 
-$user = 'root';
-$password = '';
-$database = 'blog';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -36,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (count($errors) === 0) {
 
-        $conn = new PDO('mysql:host=localhost;dbname=' . $database, $user, $password);
+        $conn = new PDO('mysql:host=mysql2.webland.ch;dbname=posts', 'd041e_meoltieki', '54321_Db!!!');
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = $conn->prepare("INSERT INTO posts (created_by, post_title, post_text, link ) VALUES (  :name, :betreff, :post, :link) ");
 

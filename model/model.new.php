@@ -2,11 +2,7 @@
 
 
 
-$user = 'root';
-$password = '';
-$database = 'blog';
-
-$pdo = new PDO('mysql:host=localhost;dbname='. $database, $user, $password);
+$pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=posts', 'd041e_meoltieki', '54321_Db!!!');
 
         $sql = "SELECT creadet_at, created_by, post_title, post_text, link FROM posts Order BY ID DESC";
 

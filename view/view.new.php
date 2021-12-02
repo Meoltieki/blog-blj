@@ -15,7 +15,8 @@
 
 
   
-    <title>New Posts</title>
+<title>New Posts</title>
+
 </head>
 
 <body>

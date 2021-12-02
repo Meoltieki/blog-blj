@@ -6,20 +6,20 @@ body {
     color: blanchedalmond;
     background-color: black;
     
+    
 }
 .music{
     display: none;
 }
 
-.header{
-    font-size: 2.0em;
-    text-shadow: 0 0 25px #dd6cae ,
-                 0 0 50px #dd6cae,
-                 0 0 100px #dd6cae ,
-                 0 0 150px #dd6cae ,
-                 0 0 200px #dd6cae ;
+.font-effect-neon{
+    font-family: Monoton;
+    font-size: 6em;
+    text-align: center;
     animation: animate 5s linear infinite;
 }
+ 
+
 
 @keyframes animate {
 
@@ -32,7 +32,12 @@ body {
 
 
 }
-
+.otherblogs{
+    color: blanchedalmond;
+}
+.kasten{
+    border-radius: 5px 5%
+}
 
 a:link{
     background-color: grey ;
@@ -43,7 +48,8 @@ a:visited{
     color:wheat;
 }
 a:hover{
-    color:brown;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 10px 15px rgba(12, 224, 206, 0.349);
 }
 
 
@@ -52,6 +58,23 @@ div.php {
     border-radius: 5px 5%
    
 }
+
+.button {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: grey;
+    padding: 15px 40px;
+    border-radius: 5px 5%;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .glow-button:hover {
+
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 10px 15px rgba(12, 224, 206, 0.349);
+  }
     
 
 
@@ -60,13 +83,96 @@ div.php {
     padding-right: 100px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
   }
   
-  #container {
-    position: fixed;
-    touch-action: none;
+  :root {
+    --card-height: 5vh;
+    --card-width: calc(var(--card-height) / 0.5);
+  }
+  
+  
+  .card {
+    display: grid;
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 0.5em;
+    color: rgb(88 199 250 / 0%);
+    cursor: pointer;
+    font-family: cursive;
+  }
+  
+  .card:hover {
+    color: rgb(88 199 250 / 100%);
+    transition: color 1s;
+  }
+  .card:hover:before, .card:hover:after {
+    animation: none;
+    opacity: 0;
+  }
+  
+  
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      position: absolute;
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  
+  a {
+    color: #212534;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
   }
 
+  

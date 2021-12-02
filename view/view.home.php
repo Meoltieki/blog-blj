@@ -10,15 +10,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Blog</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton&effect=neon">
+
+  <div class="font-effect-neon">BLOG</div></br></br>
 </head>
 
 <body>
 
-    <div class="header">
-        <h1>BLOG</h1>
-    </div>
+    
 
 
     <?php  include 'include.php'; ?>
@@ -34,12 +33,14 @@
 
 
     <main>
-
+       
+        <div class="kasten">
         <form action="index.php" method="POST">
-
+            
             <label for="name">Name</label><br />
 
             <input type="text" id="name" name="name" value="<?= htmlspecialchars($name ?? '') ?>"><br /><br />
+            
 
             <label for="betreff">Betreff</label><br />
 
@@ -51,13 +52,14 @@
             <textarea name="post" id="post" cols="40" rows="5"><?= ($post ?? '') ?></textarea></br>
 
             <label for="link">Bild</label><br />
-            <input type="text" id="link" name="link" value="<?= htmlspecialchars($link ?? '') ?>"><br /><br />
+            <input type="text" id="link" name="link" border-radius: 5px 5% value="<?= htmlspecialchars($link ?? '') ?>"><br /><br />
 
-            <input type="submit" value="Posten"></br>
+            <input class="button glow-button" type="submit" value="Posten"></br>
         
         </form>
+        </div>
     </main>
-
+    
     </br>
     <footer>Autor/in: du.</br></br> <a href = "https://creativecommons.org/licenses/by/3.0/">licenses to the music</a></footer>
 

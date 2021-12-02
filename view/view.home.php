@@ -20,7 +20,7 @@
     
 
 
-    <?php  include 'include.php'; ?>
+    <?php  include 'view/include.php'; ?>
 
 
     <div class="error-box">

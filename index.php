@@ -15,7 +15,7 @@ elseif($page === 'others'){
 }
 
 else{
-    include 'error.html';
+    include 'error/error.html';
     
 }
 

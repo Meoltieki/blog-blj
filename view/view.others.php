@@ -22,7 +22,8 @@
     
     <div class="font-effect-neon">BLOG</div></br></br>
 
-    <?php  include 'include.php'; ?>
+    <?php  include 'view/include.php'; ?>
+    
     <div id = "wrapper">
     <?php
     foreach ($pdo->query($sql) as $row) { 

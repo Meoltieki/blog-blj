@@ -21,7 +21,7 @@
 <body>
 <div class="font-effect-neon">BLOG</div></br></br>  
 
-    <?php include 'include.php'?>
+<?php  include 'view/include.php'; ?>
 
 
 

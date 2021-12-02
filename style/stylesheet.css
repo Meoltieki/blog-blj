@@ -17,6 +17,7 @@ body {
 a:link{
     background-color: wheat ;
     text-decoration: none;
+    border-radius: 5px 5%;
 }
 a:visited{
     color:gray;
@@ -28,7 +29,7 @@ a:hover{
 
 div.php {
     background-color: wheat;
-    border-radius: 20px 10%
+    border-radius: 5px 5%
    
 }
     

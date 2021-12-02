@@ -1,5 +1,5 @@
 
-<link rel = "stylesheet" href = "stylesheet.css">
+<link rel = "stylesheet" href = "style/stylesheet.css">
 
 
 

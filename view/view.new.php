@@ -33,13 +33,17 @@
        
         <div class = "php">
             
-           <p><b><?=  $row['created_by']?></b> </p><br /> 
+           <p><b><?=  $row['created_by']?></b></b></p>
+
     
-           <p> <?=  $row['post_title']?></p> <br />
-           <p><?=  $row['post_text']?> </p><br />
-           <p> <img src=<?= $row ['link']?> width = "350"  height= "200"> </p>
+           <p> <?=  $row['post_title']?> <br /><br /></p>
+
+
+           <br /><br /><p><?=  $row['post_text']?> </p><br /><br />
+
+           <p> <img src=<?= $row ['link']?> width = "350"  height= "200"><br /><br /> </p>
            
-           <p><?= $row ['creadet_at']?></p>
+           <p><?= $row ['creadet_at']?><br /></p>
            
         </div>
 

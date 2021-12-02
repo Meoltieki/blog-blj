@@ -59,7 +59,7 @@
     </main>
 
     </br>
-    <footer>Autor/in: du.</footer>
+    <footer>Autor/in: du.</br></br> <a href = "https://creativecommons.org/licenses/by/3.0/">licenses to the music</a></footer>
 
 </body>
 

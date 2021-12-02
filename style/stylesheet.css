@@ -60,5 +60,13 @@ div.php {
     padding-right: 100px;
 }
 
-
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #container {
+    position: fixed;
+    touch-action: none;
+  }
 

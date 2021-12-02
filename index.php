@@ -15,7 +15,8 @@ elseif($page === 'others'){
 }
 
 else{
-    echo '404 Page not found.';
+    include 'error.html';
+    
 }
 
 

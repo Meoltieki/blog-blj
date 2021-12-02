@@ -42,36 +42,12 @@
            <p><?= $row ['creadet_at']?></p>
            
         </div>
-                
-        
-
-            <form action = "model/model.new.php" method = "POST">
-
-                <?php foreach ($pdo->query($tt) as $row) { ?> 
-                    
-                    <p><?= $row ['comment']?></p>
-
-                <?php } ?>
-            
-            </form>
 
      </form>
             
     <?php } ?>  
 
-    <form action = "model/model.new.php" method = "POST">
-
-       
-       
-        
-            <label for="comment">Comment</label><br />
-            <textarea name="comment" id="comment" cols="40" rows="2"><?= ($comment ?? '') ?></textarea></br>
-
-             <input type="submit" value="Comment"></br>
-
-            
-             
-        </form></br>
+  
 
 
      
@@ -82,7 +58,7 @@
 
         
     
-    </br><footer  id = "footer">Autor/in: du. </footer>
+    </br><footer  id = "footer">Autor/in: du.</br></br> <a href = "https://creativecommons.org/licenses/by/3.0/">licenses to the music</a></footer>
 </body>
 </html>
 

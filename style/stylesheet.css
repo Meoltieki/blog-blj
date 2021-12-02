@@ -3,24 +3,44 @@ body {
     justify-content: center;
     justify-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: gray;
-    background-color: blanchedalmond;
+    color: blanchedalmond;
+    background-color: black;
     
+}
+.music{
+    display: none;
 }
 
 .header{
     font-size: 2.0em;
-  
+    text-shadow: 0 0 25px #dd6cae ,
+                 0 0 50px #dd6cae,
+                 0 0 100px #dd6cae ,
+                 0 0 150px #dd6cae ,
+                 0 0 200px #dd6cae ;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+
+
 }
 
 
 a:link{
-    background-color: wheat ;
+    background-color: grey ;
     text-decoration: none;
     border-radius: 5px 5%;
 }
 a:visited{
-    color:gray;
+    color:wheat;
 }
 a:hover{
     color:brown;
@@ -28,7 +48,7 @@ a:hover{
 
 
 div.php {
-    background-color: wheat;
+    background-color: grey;
     border-radius: 5px 5%
    
 }
